@@ -25,3 +25,5 @@ class Libro(models.Model):
         verbose_name_plural = 'Libri'
     
     
+    
+    

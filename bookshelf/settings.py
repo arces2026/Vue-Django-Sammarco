@@ -9,9 +9,11 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 from datetime import timedelta
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,7 +58,7 @@ REST_FRAMEWORK = {
     ],
     # Paginazione (per liste lunghe)
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
+    'PAGE_SIZE': 100,
 }
 
 SIMPLE_JWT = {
@@ -130,10 +132,26 @@ WSGI_APPLICATION = 'bookshelf.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",  # Usa il backend MySQL (compatibile con MariaDB)
+        "NAME": "vue_django",  # Il nome del database che hai creato in MariaDB
+        "USER": "root",  # L'utente MariaDB (es. 'root')
+        "PASSWORD": "sciamano",  # La password dell'utente
+        "HOST": "localhost",  # o '127.0.0.1'
+        "PORT": "3306",  # Porta di default di MariaDB
+        "OPTIONS": {
+            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+            "charset": "utf8mb4",
+            "use_unicode": True,
+        },
     }
 }
 
