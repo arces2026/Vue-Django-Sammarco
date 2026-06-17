@@ -1,7 +1,3 @@
-Ecco il README.md completo e dettagliato per il tuo progetto Django containerizzato:
-
----
-
 # 📚 Bookshelf API - Django Backend
 
 API REST per un sistema di gestione di una libreria con autenticazione JWT, containerizzata con Docker e MariaDB.
@@ -11,19 +7,20 @@ API REST per un sistema di gestione di una libreria con autenticazione JWT, cont
 ## 📋 Indice
 
 - [Panoramica](#-panoramica)
-- [Tecnologie Utilizzate](#-tecnologie-utilizzate)
+- [Tecnologie Utilizzate](#tecnologie-utilizzate)
 - [Prerequisiti](#-prerequisiti)
 - [Struttura del Progetto](#-struttura-del-progetto)
 - [Installazione e Avvio con Docker](#-installazione-e-avvio-con-docker)
-- [Comandi Utili Docker](#-comandi-utili-docker)
-- [Gestione del Database](#-gestione-del-database)
-- [Autenticazione JWT](#-autenticazione-jwt)
+- [Comandi Utili Docker](#comandi-utili-docker)
+- [Gestione del Database](#gestione-del-database)
+- [Autenticazione JWT](#autenticazione-jwt)
 - [Endpoints API](#-endpoints-api)
 - [Testing](#-testing)
-- [Sviluppo Senza Docker](#-sviluppo-senza-docker)
+- [Sviluppo Senza Docker](#sviluppo-senza-docker)
 - [Risoluzione dei Problemi](#-risoluzione-dei-problemi)
 
 ---
+[↑ torna su](#-indice)
 
 ## 🎯 Panoramica
 
@@ -36,8 +33,9 @@ API REST per un sistema di gestione di una libreria con autenticazione JWT, cont
 L'architettura è completamente **containerizzata con Docker**, garantendo riproducibilità e facilità di deployment.
 
 ---
+[↑ torna su](#-indice)
 
-## 🛠️ Tecnologie Utilizzate
+## Tecnologie Utilizzate
 
 ### Backend Framework
 | Tecnologia | Versione | Scopo |
@@ -68,6 +66,7 @@ L'architettura è completamente **containerizzata con Docker**, garantendo ripro
 - **CORS**: Necessario per permettere al frontend Vue (in esecuzione su porta diversa) di comunicare con l'API.
 
 ---
+[↑ torna su](#-indice)
 
 ## 📋 Prerequisiti
 
@@ -115,6 +114,7 @@ VUE-DJANGO-FOLDER/
 ```
 
 ---
+[↑ torna su](#-indice)
 
 ## 🐳 Installazione e Avvio con Docker
 
@@ -136,13 +136,13 @@ DB_HOST=db
 DB_PORT=3306
 DB_NAME=vue_django
 DB_USER=root
-DB_PASSWORD=sciamano
+DB_PASSWORD=********
 
 # Configurazione MariaDB
-MYSQL_ROOT_PASSWORD=sciamano
+MYSQL_ROOT_PASSWORD=********
 ```
 
-> **⚠️ IMPORTANTE**: Sostituisci `sciamano` con una password sicura per l'ambiente di produzione. Il file `.env` NON deve essere committato nel repository (aggiungilo al `.gitignore`).
+> **⚠️ IMPORTANTE**: Sostituisci `********` con una password sicura per l'ambiente di produzione. Il file `.env` NON deve essere committato nel repository (aggiungilo al `.gitignore`).
 
 ### 3. Costruisci e Avvia i Container
 
@@ -187,6 +187,8 @@ Apri il browser e visita:
 - **Register**: http://localhost:8000/api/register/
 
 ---
+[↑ torna su](#-indice)
+<a id='comandi-utili-docker'><a>
 
 ## 🛠️ Comandi Utili Docker
 
@@ -257,6 +259,8 @@ docker-compose up -d --build
 ```
 
 ---
+[↑ torna su](#-indice)
+<a id='gestione-del-database'><a>
 
 ## 🗄️ Gestione del Database
 
@@ -306,6 +310,7 @@ docker exec -it django-backend python manage.py sqlmigrate catalog 0001
 ```
 
 ---
+[↑ torna su](#-indice)
 
 ## 🔐 Autenticazione JWT
 
@@ -397,6 +402,7 @@ curl -X POST http://localhost:8000/api/token/refresh \
 ```
 
 ---
+[↑ torna su](#-indice)
 
 ## 📡 Endpoints API
 
@@ -455,6 +461,7 @@ curl -X PUT http://localhost:8000/api/libri/1/ \
 ```
 
 ---
+[↑ torna su](#-indice)
 
 ## 🧪 Testing
 
@@ -475,6 +482,8 @@ docker exec -it django-backend python manage.py test --verbosity=2
 ```
 
 ---
+[↑ torna su](#-indice)
+<a id='sviluppo-senza-docker'><a>
 
 ## 🛠️ Sviluppo Senza Docker
 
@@ -541,6 +550,7 @@ python manage.py runserver 0.0.0.0:8000
 ```
 
 ---
+[↑ torna su](#-indice)
 
 ## 🔧 Risoluzione dei Problemi
 
@@ -622,6 +632,7 @@ docker exec -it django-backend python manage.py createsuperuser
 ```
 
 ---
+[↑ torna su](#-indice)
 
 ## 📦 Dipendenze Dettagliate
 
@@ -654,6 +665,7 @@ pip install django-debug-toolbar  # Debug toolbar
 ```
 
 ---
+[↑ torna su](#-indice)
 
 ## 🤝 Contribuire
 
@@ -674,6 +686,7 @@ pip install django-debug-toolbar  # Debug toolbar
 6. Apri una **Pull Request**
 
 ---
+[↑ torna su](#-indice)
 
 ## 📝 Licenza
 
