@@ -139,19 +139,30 @@ WSGI_APPLICATION = 'bookshelf.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",  # Usa il backend MySQL (compatibile con MariaDB)
+#         "NAME": "vue_django",  # Il nome del database che hai creato in MariaDB
+#         "USER": "root",  # L'utente MariaDB (es. 'root')
+#         "PASSWORD": "sciamano",  # La password dell'utente
+#         "HOST": "localhost",  # o '127.0.0.1'
+#         "PORT": "3306",  # Porta di default di MariaDB
+#         "OPTIONS": {
+#             "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+#             "charset": "utf8mb4",
+#             "use_unicode": True,
+#         },
+#     }
+# }
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",  # Usa il backend MySQL (compatibile con MariaDB)
-        "NAME": "vue_django",  # Il nome del database che hai creato in MariaDB
-        "USER": "root",  # L'utente MariaDB (es. 'root')
-        "PASSWORD": "sciamano",  # La password dell'utente
-        "HOST": "localhost",  # o '127.0.0.1'
-        "PORT": "3306",  # Porta di default di MariaDB
-        "OPTIONS": {
-            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
-            "charset": "utf8mb4",
-            "use_unicode": True,
-        },
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "HOST": os.getenv("DB_HOST"),
+        "PORT": os.getenv("DB_PORT"),
     }
 }
 
