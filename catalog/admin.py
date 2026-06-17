@@ -13,4 +13,6 @@ class AutoreAdmin(admin.ModelAdmin):
 class LibroAdmin(admin.ModelAdmin):
     list_display = ['titolo', 'anno', 'autore', 'genere']
     list_filter = ['genere']
+    
+    
 
